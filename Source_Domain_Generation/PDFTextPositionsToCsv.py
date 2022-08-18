@@ -7,8 +7,7 @@ name = 'source_domain'
 
 doc = fitz.open('generate_book.pdf')
 
-os.mkdir('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/Source_Domain_Generation/
-' + name)
+os.mkdir('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/Source_Domain_Generation/' + name)
 os.mkdir('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/Source_Domain_Generation/' + name + '-csv')
 i = 1
 
