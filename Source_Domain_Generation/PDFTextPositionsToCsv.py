@@ -1,7 +1,7 @@
 import fitz
 import xml.etree.ElementTree as ET
 import os
-from cropForDiscriminator import CropInformation
+# from cropForDiscriminator import CropInformation
 
 name = 'source_domain'
 
