@@ -21,7 +21,7 @@ for page in doc:
     text = page.get_text('xml', flags=2)
 
 
-    pix.writePNG(name + '/' + name + '-' + f"{i:03d}" +'.png')
+    pix.Pixmap.save(name + '/' + name + '-' + f"{i:03d}" +'.png')
     f= open('currpage.xml','w+')
 
     f.write(str(text))
