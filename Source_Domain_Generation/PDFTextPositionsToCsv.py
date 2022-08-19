@@ -28,7 +28,7 @@ for page in doc:
     f.close()
 
     csv = open(name +'-csv/' + name + '-' + f"{i:03d}" +'.csv','w+') # information of all normal chars in pdf
-    lettrine = open('lettrine/lettrine-' + f"{i:03d}" + '.csv', 'w+') # information of all lettrine in pdf
+    # lettrine = open('lettrine/lettrine-' + f"{i:03d}" + '.csv', 'w+') # information of all lettrine in pdf
     csv.write('char' + csvDelimiter + 'x0' + csvDelimiter + 'y0' + csvDelimiter + 'x1' + csvDelimiter + 'y1\n')
     root = ET.parse('currpage.xml').getroot()
 
