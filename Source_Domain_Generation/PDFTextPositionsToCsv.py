@@ -18,7 +18,7 @@ for page in doc:
     mat = fitz.Matrix(zoom, zoom)
 
     pix = page.get_pixmap(matrix=mat) # increase picture size to be roughly the same as the scanned pictures (so in one crop there are roughly the same number of lines)
-    text = page.getText('xml', flags=2)
+    text = page.get_text('xml', flags=2)
 
 
     pix.writePNG(name + '/' + name + '-' + f"{i:03d}" +'.png')
