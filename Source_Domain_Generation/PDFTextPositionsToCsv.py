@@ -17,7 +17,7 @@ for page in doc:
     zoom = 3.9 # zoom has to be adapted to fit with target domain / historical scripts
     mat = fitz.Matrix(zoom, zoom)
 
-    pix = page.get_Pixmap(matrix=mat) # increase picture size to be roughly the same as the scanned pictures (so in one crop there are roughly the same number of lines)
+    pix = page.get_pixmap(matrix=mat) # increase picture size to be roughly the same as the scanned pictures (so in one crop there are roughly the same number of lines)
     text = page.getText('xml', flags=2)
 
 
