@@ -41,9 +41,9 @@ for page in doc:
             char = font.findall('char')[0]
 
             quad = char.get('quad')
-            lettrine.write(char.get('c') + csvDelimiter + str(float(quad.rsplit(' ')[0]) * zoom) + csvDelimiter + str(
-                float(quad.rsplit(' ')[1]) * zoom) + csvDelimiter + str(float(quad.rsplit(' ')[2]) * zoom) + csvDelimiter + str(
-                float(char.get('y')) * zoom) + '\n')
+            # lettrine.write(char.get('c') + csvDelimiter + str(float(quad.rsplit(' ')[0]) * zoom) + csvDelimiter + str(
+                # float(quad.rsplit(' ')[1]) * zoom) + csvDelimiter + str(float(quad.rsplit(' ')[2]) * zoom) + csvDelimiter + str(
+                # float(char.get('y')) * zoom) + '\n')
 
         else:
             # since pymupdf gets wrong information about fake spaces and the position of letters before and after them, they have to be adjusted
