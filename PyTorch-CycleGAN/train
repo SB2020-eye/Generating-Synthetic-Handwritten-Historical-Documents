@@ -1,11 +1,4 @@
 #!/usr/bin/python3
-
-# begin - added by SB
-from pathlib import Path
-import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))  # 1. <.parent> contains this file1.py 2. <.parent.parent> contains folder1 3. <.parent.parent.parent> contains Project
-# end - added by SB
-
 import torchvision
 
 import wandb
