@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
+# begin - added by SB
 import sys
 sys.path.append('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents')
+sys.path.append('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc')
+# end - added by SB
 
 import torchvision
 
