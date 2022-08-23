@@ -91,7 +91,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     augment_factor = 0
     source_dataset = args.source_dataset
-    path_to_models = '/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/output/'
+    path_to_models = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/'
 
     if source_dataset == 'EG' or source_dataset == 'EG-BG':
         forceLower = True
