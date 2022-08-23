@@ -17,7 +17,7 @@ class ImageDataset(Dataset):
         self.unaligned = unaligned
         self.mode = mode
 
-        self.crops_A =  generateCrops(3, '/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/generated/' , just_generate=True, crop_path='train/A/', source_dataset= source_dataset)
+        self.crops_A =  generateCrops(3, '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/generated/' , just_generate=True, crop_path='train/A/', source_dataset= source_dataset)
 
         self.files_B_name = sorted(glob.glob(root + '/' + mode + '/' + target_dataset + '/*.*'))
 
