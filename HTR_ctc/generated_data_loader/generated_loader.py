@@ -24,7 +24,7 @@ except:
 
 class GeneratedLoader(Dataset):
 
-    def __init__(self, set = 'train', augment_factor = 0, resize = False, nr_of_channels=1, fixed_size=(128, None), generator_path = '', source_dataset = 'EG-BG-LC', save_path = ''):
+    def __init__(self, set = 'train', augment_factor = 0, resize = False, nr_of_channels=1, fixed_size=(128, None), generator_path = '', source_dataset = 'A', save_path = ''):
         self.resize = resize
         self.augment_factor = augment_factor
         self.fixed_size = fixed_size
