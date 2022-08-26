@@ -12,7 +12,7 @@ batch_size = 32
 iter_size = 16
 # fixed_size
 
-model_path = '/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/saved_models/'
+model_path = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/saved_models/'
 save_model_name = 'IAM2.pt' #'bla.pt' #'crnn_' + data_name + '_only_iam.pt'
 load_model_name = None
 #load_model_name = 'GEN-LC.pt' #'Only_gen.pt' #'crnn_' + data_name + '_only_iam.pt'#'_lowercase_new_gen.pt'#'crnn_' + data_name + '_only_gen.pt'
