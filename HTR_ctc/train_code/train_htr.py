@@ -132,7 +132,7 @@ if __name__ == "__main__":
                                                              source_dataset=source_dataset)
         rd, scheduler = InitStandardRD(nlr=args.learning_rate)
 
-        # img = cv2.normalize(cv2.imread('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/TestWord.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+        # img = cv2.normalize(cv2.imread('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/TestWord.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
         curr_max_epochs = max_epochs
         logger.info('Training:')
 
@@ -185,7 +185,7 @@ if __name__ == "__main__":
             _, test_set, train_loader, test_loader = InitDataset(args.data_set, augment_factor=augment_factor, path_to_generator_A2B=path_to_generator_A2B, source_dataset = source_dataset, save_path=generator_path)
             rd, scheduler = InitStandardRD(nlr=args.learning_rate)
 
-            # img = cv2.normalize(cv2.imread('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/TestWord.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+            # img = cv2.normalize(cv2.imread('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/TestWord.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
             curr_max_epochs = max_epochs
             logger.info('Training:')
             old_cer = 1
