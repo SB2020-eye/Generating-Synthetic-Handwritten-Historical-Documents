@@ -120,12 +120,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
     augment_factor = 0
     source_dataset = 'EG-BG-LC'
-    path_to_model_IAM = '/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/saved_models/IAMN90.pth'
-    path_to_model_GEN = '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/GEN150.pth'
-    path_to_model_NoPre = '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/NoPreN200.pth'
-    path_to_model_IAM2RD = '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/TwoIAMN110.pth'
-    path_to_model_GEN2RD = '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/TwoGEN190.pth'
-    path_to_model_NoPre2RD = '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/TwoNoPreN190.pth'
+    path_to_model_IAM = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/saved_models/IAMN90.pth'
+    path_to_model_GEN = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/GEN150.pth'
+    path_to_model_NoPre = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/NoPreN200.pth'
+    path_to_model_IAM2RD = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/TwoIAMN110.pth'
+    path_to_model_GEN2RD = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/TwoGEN190.pth'
+    path_to_model_NoPre2RD = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/TwoNoPreN190.pth'
     save_number = args.save_number
 
     transforms_ = [transforms.ToTensor()]
@@ -160,11 +160,11 @@ if __name__ == "__main__":
     # NoPre2RD_A2B.cuda()
     # NoPre2RD_A2B.load_state_dict(torch.load(path_to_model_NoPre2RD))
     count = 0
-    all_image_names = os.listdir('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/generated/' + source_dataset)
+    all_image_names = os.listdir('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/generated/' + source_dataset)
     for image_name in all_image_names:
         if image_name[-1].lower() == 'g':  # to avoid e.g. thumbs.db files
             print(image_name)
-            image = cv2.imread(os.path.join('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/generated/' + source_dataset, image_name))
+            image = cv2.imread(os.path.join('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/generated/' + source_dataset, image_name))
             #print(image.size)
             image = cv2.normalize(image, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
 
@@ -211,15 +211,15 @@ if __name__ == "__main__":
                     height_list = np.concatenate((x,y,z),axis=0)
                 height += (256-stepsize)
                 width_list = []
-                #cv2.imwrite('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/output/iam' + str(counter) + '.png', height_list)
+                #cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/output/iam' + str(counter) + '.png', height_list)
                 counter += 1;
 
             iam_set = height_list # np.concatenate(height_list, axis = 0)
-            cv2.imwrite('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/generated/syn2/' + image_name, iam_set)
+            cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/generated/syn2/' + image_name, iam_set)
 
 
             #
-            # image, csvCropString = getRandomCrop(image, image_name, '/home/manuel/CycleGANRD/HTR_ctc/data/generated/', source_dataset)
+            # image, csvCropString = getRandomCrop(image, image_name, '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/generated/', source_dataset)
             # real_A = Variable(input_A.copy_(transform(image)))
             # IAM_image = (IAM_A2B(real_A).data)
             # np_IAM = cv2.normalize(IAM_image.detach().squeeze(0).permute(1, 2, 0).cpu().numpy(), None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F) * 255
@@ -243,9 +243,9 @@ if __name__ == "__main__":
             #nopre_set = np.concatenate((image *255, np_NoPre, np_NoPre2RD), axis=1)
 
             #a = np.concatenate(np.array(np_IAM)[indices.astype(int)], np.array(np_IAM)[indices.astype(int)], np.array(np_IAM)[indices.astype(int)],np_GEN, np_NoPre)
-            #cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/images2RD/iam' + str(count) + '.png', iam_set)
-            #cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/images2RD/gen' + str(count) + '.png', gen_set)
-            #cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/best/images2RD/nopre' + str(count) + '.png', nopre_set)
+            #cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/images2RD/iam' + str(count) + '.png', iam_set)
+            #cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/images2RD/gen' + str(count) + '.png', gen_set)
+            #cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/best/images2RD/nopre' + str(count) + '.png', nopre_set)
             #count = count +1
 
 
