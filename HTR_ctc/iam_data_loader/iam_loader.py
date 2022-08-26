@@ -155,7 +155,7 @@ class alignCollate2(object):
                     nwidth = int(np.random.uniform(.8, 1.2) * img.shape[1] * nheight / img.shape[0])
 
                 img = image_resize(img, height=nheight - 16, width=nwidth)
-                cv2.imwrite('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/test.png',img)
+                cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/test.png',img)
                 img = img[ np.newaxis, ...]
                 # img = centered(img, (nheight, int(1.2 * nwidth) + 32))
                 #img = Variable(torch.Tensor(img).float().unsqueeze(0))
