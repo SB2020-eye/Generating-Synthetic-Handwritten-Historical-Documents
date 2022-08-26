@@ -16,7 +16,10 @@ except:
     from HTR_ctc.models.crnn import CRNN
     from HTR_ctc.models.htr_net import HTRNet
 try:
-    from config import *
+    # begin--changed by SB
+    # from config import *
+    from . import config
+    # end--changed by SB
     from reading_discriminator import *
 except:
     from HTR_ctc.train_code.config import *
