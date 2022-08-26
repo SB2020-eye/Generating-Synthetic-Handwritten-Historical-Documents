@@ -92,7 +92,7 @@ class ReadingDiscriminator():
         # cuda augm - alternatively for cpu use it on dataloader
         # img = torch_augm(img)
 #        np_img = img.detach().squeeze(0).permute(1,2,0).cpu().numpy()
- #       cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/test2.png', np_img*255)
+ #       cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/test2.png', np_img*255)
         output = self.net(img)
 
 
@@ -119,7 +119,7 @@ class ReadingDiscriminator():
 
 
 
-            #cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/test1.png', np_img * 255)
+            #cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/test1.png', np_img * 255)
 
 
         return loss_val, output
@@ -190,7 +190,7 @@ class ReadingDiscriminator():
         wordRight = False
         files = []
         transform = transforms.Compose([transforms.ToTensor()])
-        file_names = sorted(glob.glob('/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/data/historical' + '/*.*'))
+        file_names = sorted(glob.glob('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/data/historical' + '/*.*'))
         cer_path, wer_path = [], []
         cer_beam, wer_beam = [], []
         cer_beam_clean, wer_beam_clean = [], []
@@ -257,10 +257,10 @@ class ReadingDiscriminator():
         cer_beam, wer_beam = [], []
         cer_beam_clean, wer_beam_clean = [], []
 
-        word_location = open("/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/word_location.txt", "r")
-        word_transcription = open("/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/transcription.txt",
+        word_location = open("/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/word_location.txt", "r")
+        word_transcription = open("/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/transcription.txt",
                                   "r")
-        test_images = open("/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/test.txt",
+        test_images = open("/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/test.txt",
                                   "r").readline()
         data = []
         transcription = word_transcription.readline().split(' ')
@@ -269,7 +269,7 @@ class ReadingDiscriminator():
             word_array = word_info.split(' ')
 
             test_images = open(
-                "/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/test.txt",
+                "/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/test.txt",
                 "r")
             rightPage = False
             for img_name in test_images:
@@ -284,7 +284,7 @@ class ReadingDiscriminator():
 
             word_text = transcription[1].split('|')
             count = 0
-            image = cv2.normalize(cv2.imread('/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/data/line_images_normalized/' + str(word_array[0]) + '.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1,
+            image = cv2.normalize(cv2.imread('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/data/line_images_normalized/' + str(word_array[0]) + '.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1,
                           norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
             image = image[:, :, np.newaxis]
 
