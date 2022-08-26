@@ -52,10 +52,10 @@ class SaintGallLoader(Dataset):
     def __init__(self, pages=10):
 
         word_location = open(
-            "/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/word_location.txt",
+            "/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/word_location.txt",
             "r")
         word_transcription = open(
-            "/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/transcription.txt",
+            "/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/ground_truth/transcription.txt",
             "r")
         data = []
         transcription = word_transcription.readline().split(' ')
@@ -64,7 +64,7 @@ class SaintGallLoader(Dataset):
             word_array = word_info.split(' ')
 
             rightPageNames = open(
-                "/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/valid" + str(pages) +".txt",
+                "/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/sets/valid" + str(pages) +".txt",
                 "r")
             rightPage = False
             for img_name in rightPageNames:
@@ -80,7 +80,7 @@ class SaintGallLoader(Dataset):
             word_text = transcription[1].split('|')
             count = 0
             image = cv2.normalize(cv2.imread(
-                '/HOME/pondenka/manuel/CycleGANRD/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/data/line_images_normalized/' + str(
+                '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/datasets/saintgalldb-v1-2.0/data/line_images_normalized/' + str(
                     word_array[0]) + '.png', cv2.IMREAD_GRAYSCALE), None, alpha=0, beta=1,
                                   norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
             #image = image[:, :, np.newaxis]
@@ -163,7 +163,7 @@ if __name__ == "__main__":
     #os.environ["CUDA_VISIBLE_DEVICES"] = "7"
     args = parser.parse_args()
     augment_factor = 0
-    rd_pretrain_load = '/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/saved_models/IAM.pt'
+    rd_pretrain_load = '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/saved_models/IAM.pt'
     pages = int(args.pages)
 
     wandb.init(project="saint-gall", config={"pages": pages, "rd_pretrain_load":rd_pretrain_load })
@@ -187,4 +187,4 @@ if __name__ == "__main__":
                        'overall_cer_beam': overall_cer_beam,
                        'overall_wer_path':overall_wer_path,
                        'overall_wer_beam': overall_wer_beam})
-            rd.saveModel('',model_path='/HOME/pondenka/manuel/CycleGANRD/HTR_ctc/saved_models/clean_rd_' + str(pages) + '.pt')
+            rd.saveModel('',model_path='/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/HTR_ctc/saved_models/clean_rd_' + str(pages) + '.pt')
