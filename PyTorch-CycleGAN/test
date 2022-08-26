@@ -61,10 +61,10 @@ dataloader = DataLoader(ImageDataset(opt.dataroot, transforms_=transforms_, mode
 ###### Testing######
 
 # Create output dirs if they don't exist
-if not os.path.exists('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/A'):
-    os.makedirs('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/A')
-if not os.path.exists('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/B'):
-    os.makedirs('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/B')
+if not os.path.exists('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/A'):
+    os.makedirs('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/A')
+if not os.path.exists('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/B'):
+    os.makedirs('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/B')
 
 for i, batch in enumerate(dataloader):
     # Set model input
@@ -76,12 +76,12 @@ for i, batch in enumerate(dataloader):
     fake_A = 0.5*(netG_B2A(real_B).data + 1.0)
 
     # Save image files
-    save_image(fake_A, '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/A/%04d.png' % (i+1))
+    save_image(fake_A, '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/A/%04d.png' % (i+1))
     np_img = real_B.detach().squeeze(0).permute(1, 2, 0).cpu().numpy() * 255
-    cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/B/real%04d.png' % (i+1), np_img )
+    cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/B/real%04d.png' % (i+1), np_img )
     np_img = fake_B.detach().squeeze(0).permute(1, 2, 0).cpu().numpy() * 255
-    cv2.imwrite('/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/B/%04d.png' % (i+1), np_img )
-    #save_image(fake_B, '/home/manuel/CycleGANRD/PyTorch-CycleGAN/output/B/%04d.png' % (i+1))
+    cv2.imwrite('/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/B/%04d.png' % (i+1), np_img )
+    #save_image(fake_B, '/content/drive/MyDrive/Github/Generating-Synthetic-Handwritten-Historical-Documents/PyTorch-CycleGAN/output/B/%04d.png' % (i+1))
 
     sys.stdout.write('\rGenerated images %04d of %04d' % (i+1, len(dataloader)))
 
