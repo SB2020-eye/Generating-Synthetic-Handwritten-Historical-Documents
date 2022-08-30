@@ -355,7 +355,7 @@ class ReadingDiscriminator():
             self.net.to(device)
             logger.info('Loading model parameters for RD successfull')
         elif filename is not None:
-            logger.info('Loading model parameters failed, ' + str(model_path + filename) + 'not found')
+            logger.info('Loading model parameters failed, ' + str(model_path + str(filename)) + 'not found')
 
 
 # beam search
