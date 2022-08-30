@@ -349,6 +349,8 @@ class ReadingDiscriminator():
         torch.save(self.net.state_dict(), model_path + filename)
 
     def loadModel(self, filename, model_path = model_path):
+        print(type(filename))
+        print(type(model_path))
         if isfile(model_path + filename):
             load_parameters = torch.load(model_path + filename)
             self.net.load_state_dict(load_parameters)
