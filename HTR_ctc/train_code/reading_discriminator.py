@@ -32,7 +32,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class ReadingDiscriminator():
 
-    def __init__(self, optimizer, net, loss, named_parameters, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
+    def __init__(self, optimizer, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
         self.optimizer = optimizer
         self.lr = lr
         self.net = net.to(device)
