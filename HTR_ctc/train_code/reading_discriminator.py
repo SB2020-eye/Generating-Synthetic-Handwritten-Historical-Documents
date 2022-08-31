@@ -86,8 +86,8 @@ class ReadingDiscriminator():
 
 
     def train(self, img, transcr, batch_size_train=batch_size):
-        for name, param in self.net.named_parameters():
-            print(name, param.grad)
+        # for name, param in self.net.named_parameters():
+            # print(name, param.grad)
         img = Variable(img.to(device))
         # cuda augm - alternatively for cpu use it on dataloader
         # img = torch_augm(img)
