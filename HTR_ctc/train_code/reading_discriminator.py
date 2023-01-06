@@ -86,8 +86,9 @@ class ReadingDiscriminator():
 
 
     def train(self, img, transcr, batch_size_train=batch_size):
-        # for name, param in self.net.named_parameters():
-            # print(name, param.grad)
+        # SB: two lines below originally commented out; I'm uncommenting them on account of getting "AttributeError: 'ReadingDiscriminator' object has no attribute 'named_parameters'"
+        for name, param in self.net.named_parameters():
+            print(name, param.grad)
         img = Variable(img.to(device))
         # cuda augm - alternatively for cpu use it on dataloader
         # img = torch_augm(img)
