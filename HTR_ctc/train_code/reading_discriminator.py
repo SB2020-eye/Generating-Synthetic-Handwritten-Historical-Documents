@@ -32,8 +32,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class ReadingDiscriminator():
 
-    def __init__(self, optimizer, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
+    # SB: adding "named_parameters" to "def __init__" list and "self.named_parameters = named_parameters" below it to try to fix no attribute error
+    def __init__(self, optimizer, named_parameters, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
         self.optimizer = optimizer
+        self.named_parameters = named_parameters
         self.lr = lr
         self.net = net.to(device)
         self.loss = loss
