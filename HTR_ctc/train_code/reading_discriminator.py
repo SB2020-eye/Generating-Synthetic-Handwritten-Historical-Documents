@@ -32,10 +32,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class ReadingDiscriminator():
 
-    # SB: adding "named_parameters" to "def __init__" list and "self.named_parameters = named_parameters" below it to try to fix no attribute error
-    def __init__(self, optimizer, named_parameters, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
+    def __init__(self, optimizer, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
         self.optimizer = optimizer
-        self.named_parameters = named_parameters
         self.lr = lr
         self.net = net.to(device)
         self.loss = loss
@@ -88,9 +86,8 @@ class ReadingDiscriminator():
 
 
     def train(self, img, transcr, batch_size_train=batch_size):
-        # SB: two lines below originally commented out; I'm uncommenting them on account of getting "AttributeError: 'ReadingDiscriminator' object has no attribute 'named_parameters'"
-        for name, param in self.net.named_parameters():
-            print(name, param.grad)
+        # for name, param in self.net.named_parameters():
+            # print(name, param.grad)
         img = Variable(img.to(device))
         # cuda augm - alternatively for cpu use it on dataloader
         # img = torch_augm(img)
