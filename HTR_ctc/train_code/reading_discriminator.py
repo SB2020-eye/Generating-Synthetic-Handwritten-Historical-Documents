@@ -32,10 +32,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class ReadingDiscriminator():
 
-    def __init__(self, optimizer, net, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
+    # SB adding "named_parameters" below + line "self.named_parameters = named_parameters" (trying to fix AttributeError)
+    def __init__(self, optimizer, net, named_parameters, loss, lr=1e-4, load_model = None, rd_low_loss_learn = False, load_model_full_path = None):
         self.optimizer = optimizer
         self.lr = lr
         self.net = net.to(device)
+        self.named_parameters = named_parameters
         self.loss = loss
         self.step_count = 0
         self.step_freq = 1
@@ -86,8 +88,9 @@ class ReadingDiscriminator():
 
 
     def train(self, img, transcr, batch_size_train=batch_size):
-        # for name, param in self.net.named_parameters():
-            # print(name, param.grad)
+        # SB: uncommenting two lines below  (trying to fix AttributeError)
+        for name, param in self.net.named_parameters():
+            print(name, param.grad)
         img = Variable(img.to(device))
         # cuda augm - alternatively for cpu use it on dataloader
         # img = torch_augm(img)
